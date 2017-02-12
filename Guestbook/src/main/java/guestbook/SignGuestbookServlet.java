@@ -60,6 +60,8 @@ public class SignGuestbookServlet extends HttpServlet {
         String guestbookName = req.getParameter("guestbookName");
 
         Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
+        
+        String title = req.getParameter("title"); 	// ADDED
 
         String content = req.getParameter("content");
 
@@ -70,6 +72,8 @@ public class SignGuestbookServlet extends HttpServlet {
         greeting.setProperty("user", user);
 
         greeting.setProperty("date", date);
+        
+        greeting.setProperty("title",  title); 		// ADDED
 
         greeting.setProperty("content", content);
 

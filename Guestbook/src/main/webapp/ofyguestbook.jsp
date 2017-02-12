@@ -123,6 +123,10 @@ to include your name with greetings you post.</p>
         <%
 
         for (Greeting greeting : greetings) {
+        	
+        	pageContext.setAttribute("greeting_title", 		// ADDED
+        			
+        							 greeting.getTitle());
 
             pageContext.setAttribute("greeting_content",
 
@@ -152,6 +156,8 @@ to include your name with greetings you post.</p>
 
             %>
 
+            <blockquote>${fn:escapeXml(greeting_title)}</blockquote>		<%--ADDED--%>
+
             <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
 
             <%
@@ -166,9 +172,11 @@ to include your name with greetings you post.</p>
 
     <form action="/ofysign" method="post">
 
+      <div><textarea name ="title" rows="1" cols="60"></textarea></div>		<%--ADDED--%>
+      
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
 
-      <div><input type="submit" value="Post Greeting" /></div>
+      <div><input type="submit" value="Post Blog" /></div>
 
       <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 

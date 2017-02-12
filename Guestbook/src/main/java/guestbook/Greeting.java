@@ -25,6 +25,8 @@ public class Greeting implements Comparable<Greeting> {
     @Id Long id;
 
     User user;
+    
+    String title;	 // ADDED
 
     String content;
 
@@ -32,9 +34,11 @@ public class Greeting implements Comparable<Greeting> {
 
     private Greeting() {}
 
-    public Greeting(User user, String content) {
+    public Greeting(User user, String title, String content) {	// CHANGED
 
         this.user = user;
+        
+        this.title = title;		// ADDED
 
         this.content = content;
 
@@ -46,6 +50,12 @@ public class Greeting implements Comparable<Greeting> {
 
         return user;
 
+    }
+    
+    public String getTitle() {	// ADDED
+    	
+    	return title;
+    	
     }
 
     public String getContent() {
